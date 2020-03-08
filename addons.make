@@ -1,0 +1,4 @@
+ofxImageSequenceRecorder
+ofxMidi
+ofxPostGlitch
+ofxThreadedImageLoader
