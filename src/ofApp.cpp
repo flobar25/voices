@@ -1,8 +1,15 @@
 #include "ofApp.h"
 
+float startTime = -1.0;
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    ofIcoSpherePrimitive tempCube;
+    cube = tempCube.getMesh();
+    ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(cube.getVertices()));
+    ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(cube.getIndices()));
+    ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(cube.getMode()));
+    sphereShader.load("shaders/shader1Vert.c", "shaders/shader1Frag.c");
 }
 
 //--------------------------------------------------------------
@@ -13,13 +20,28 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     cam.begin();
-    sphere.drawWireframe();
+    sphereShader.begin();
+    sphereShader.setUniform1f("ellapsedTime", ofGetElapsedTimef());
+    sphereShader.setUniform1f("startTime", startTime);
+    
+    cube.drawWireframe();
+//    cube.draw();
+    sphereShader.end();
+    
+    ofSpherePrimitive temp;
+    temp.setRadius(1);
+    temp.setPosition(100, 100, 100);
+    temp.draw();
+    
     cam.end();
+    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(key));
+    startTime = ofGetElapsedTimef();
 }
 
 //--------------------------------------------------------------

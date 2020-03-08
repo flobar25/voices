@@ -22,7 +22,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
 private:
-    ofSpherePrimitive sphere;
+    ofMesh cube;
     ofEasyCam cam;
-		
+    ofShader sphereShader;
 };
