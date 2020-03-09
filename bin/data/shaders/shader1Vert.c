@@ -14,7 +14,7 @@ float noise(float p){
 }
 
 void main() {
-    float duration = 10.0;
+    float duration = 5.0;
     vec3 v = gl_Vertex.xyz;
     
     if (startTime > -1.0) {
@@ -30,14 +30,6 @@ void main() {
         }
     }
         
-//    if (index == gl_VertexID){
-//    v.x += noise(v.x);
-//    v.y += noise(v.y);
-//    v.z += noise(v.z);
-//        v.x = sin(v.x * 1.3);
-//        v.y = sin(v.y * 1.3);
-//        v.z = sin(v.z * 1.3);
-//    }
     
     vec4 posHomog = vec4(v, 1.0);
     gl_Position = gl_ModelViewProjectionMatrix * posHomog;

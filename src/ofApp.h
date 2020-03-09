@@ -1,6 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Note.h"
+
+
 
 class ofApp : public ofBaseApp{
 
@@ -25,4 +28,12 @@ private:
     ofMesh cube;
     ofEasyCam cam;
     ofShader sphereShader;
+    vector<Note> notes;
+    
+    //32 bits red, 32 bits green, 32 bits blue, from 0 to 1 in 'infinite' steps
+    ofFbo rgbaFboFloat; // with alpha
+
+    
 };
+
+
