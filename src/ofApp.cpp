@@ -42,7 +42,7 @@ void ofApp::update(){
     //this is where we fade the fbo
     //by drawing a rectangle the size of the fbo with a small alpha value, we can slowly fade the current contents of the fbo.
     ofFill();
-    ofSetColor(255,255,255, fadeAmnt);
+    ofSetColor(0,0,0, fadeAmnt);
     ofDrawRectangle(0,0,ofGetWidth(), ofGetHeight());
     
     //2 - Draw graphics
