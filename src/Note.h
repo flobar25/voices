@@ -18,7 +18,7 @@ class Note {
     }
     void draw() {
         for (auto sphere : spheres) {
-            sphere.drawWireframe();
+            sphere.draw();
         }
     }
     
@@ -27,15 +27,6 @@ class Note {
             auto pos = it->getPosition();
             it->setPosition(pos.x * 0.9, pos.y * 0.9, pos.z * 0.9 );
         }
-//        for (int i = 0; i < spheres.size(); i++) {
-//            auto sphere = spheres[i];
-//            auto pos = sphere.getPosition();
-//
-//            spheres[i] = sphere;
-//            ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(pos));
-//            ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(spheres[i].getPosition()));
-//            ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(sphere.getPosition()));
-//        }
     }
     
     private :
