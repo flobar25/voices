@@ -9,17 +9,8 @@ void ofApp::setup(){
     
     ofIcoSpherePrimitive tempCube;
     cube = tempCube.getMesh();
-    ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(cube.getVertices()));
-    ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(cube.getIndices()));
-    ofLog(ofLogLevel::OF_LOG_NOTICE, ofToString(cube.getMode()));
     sphereShader.load("shaders/shader1Vert.c", "shaders/shader1Frag.c");
-    
-//#ifdef TARGET_OPENGLES
-//    rgbaFboFloat.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA ); // with alpha, 8 bits red, 8 bits green, 8 bits blue, 8 bits alpha, from 0 to 255 in 256 steps
-//    ofLogWarning("ofApp") << "GL_RGBA32F_ARB is not available for OPENGLES.  Using RGBA.";
-//#else
     rgbaFboFloat.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA32F_ARB); // with alpha, 32 bits red, 32 bits green, 32 bits blue, 32 bits alpha, from 0 to 1 in 'infinite' steps
-//#endif
     
     rgbaFboFloat.begin();
     ofClear(0,0,0,255);
@@ -43,12 +34,9 @@ void ofApp::update(){
     strm << "fps: " << ofGetFrameRate();
     ofSetWindowTitle(strm.str());
     
-    
     for (auto it = notes.begin(); it!=notes.end(); it++) {
         it->update();
     }
-    
-    
     
     rgbaFboFloat.begin();
     
@@ -71,7 +59,6 @@ void ofApp::update(){
     ofRotateDeg(ofGetFrameNum()/2);
     sphereShader.begin();
     sphereShader.setUniform1f("ellapsedTime", ofGetElapsedTimef());
-//    sphereShader.setUniform1f("startTime", sphereStartTime);
     cube.drawWireframe();
     sphereShader.end();
     

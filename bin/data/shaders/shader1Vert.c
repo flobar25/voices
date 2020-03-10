@@ -13,22 +13,7 @@ float noise(float p){
 }
 
 void main() {
-    //    float duration = 5.0;
     vec3 v = gl_Vertex.xyz;
-    
-    //    if (startTime > -1.0) {
-    //        float difference = ellapsedTime - startTime;
-    //        if (difference < duration/2) {
-    //            v.x += sin(v.x * difference / 5);
-    //            v.y += sin(v.y * difference / 5);
-    //            v.z += sin(v.z * difference / 5);
-    //        } else if (difference < duration){
-    //            v.x += sin(v.x * (duration/2 - abs(duration/2- difference)) / 5);
-    //            v.y += sin(v.y * (duration/2 - abs(duration/2- difference)) / 5);
-    //            v.z += sin(v.z * (duration/2 - abs(duration/2- difference)) / 5);
-    //        }
-    //    }
-    
     v.x += sin(v.x * ellapsedTime / 5);
     v.y += sin(v.y * ellapsedTime / 5);
     v.z += sin(v.z * ellapsedTime / 5);
